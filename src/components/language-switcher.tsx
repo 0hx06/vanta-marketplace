@@ -26,7 +26,7 @@ export function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center rounded-lg border border-white/10 bg-[#0d151e] p-1">
+    <div className="flex items-center rounded-full border border-white/10 bg-[#121419] p-1">
       {languages.map((language) => (
         <button
           key={language.locale}
@@ -34,7 +34,7 @@ export function LanguageSwitcher() {
           title={language.label}
           aria-label={`Choisir ${language.label}`}
           onClick={() => changeLocale(language.locale)}
-          className={`px-2 py-1 text-[10px] font-bold tracking-wider transition ${locale === language.locale ? "bg-[#ff4655] text-white" : "text-zinc-500 hover:text-white"}`}
+          className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wider transition ${locale === language.locale ? "bg-[#ff4655] text-white" : "text-zinc-500 hover:text-white"}`}
         >
           {language.code}
         </button>

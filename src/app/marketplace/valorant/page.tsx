@@ -8,11 +8,11 @@ export default function ValorantMarketplacePage() {
   return (
     <SiteShell>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-6 rounded-[28px] border border-violet-500/30 bg-violet-500/10 p-6">
-          <p className="text-xs uppercase tracking-[0.3em] text-violet-200">Valorant</p>
-          <h1 className="mt-3 text-3xl font-bold text-white">Authorized offers & coaching</h1>
+        <div className="mb-6 rounded-[28px] border border-white/10 bg-[#121419] p-6">
+          <p className="text-xs uppercase tracking-[0.3em] text-[#ff6975]">Valorant</p>
+          <h1 className="mt-3 text-3xl font-bold text-white">Comptes Valorant vérifiés</h1>
           <p className="mt-2 max-w-2xl text-zinc-300">
-            This section allows only lawful, user-approved business flows. No passwords, MFA recovery data, session cookies, or private keys are requested or stored.
+            Découvre des comptes propres, des rangs et des offres publiées par des vendeurs vérifiés. Aucune donnée sensible n'est demandée.
           </p>
         </div>
       </div>

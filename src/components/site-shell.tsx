@@ -11,22 +11,22 @@ const navItems = [
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
-    <div className="vanta-grid min-h-screen bg-[#090d13] text-[#f5f7ff]">
+    <div className="min-h-screen bg-[#090a0d] text-[#f5f7ff]">
       <header className="sticky top-0 z-50 border-b border-[#263440] bg-[#0b1118]/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center border border-[#ff4655] bg-[#111923] font-black text-[#ff4655] shadow-[0_0_20px_rgba(255,70,85,0.18)]">
-              ◈
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ff4655] font-black text-white shadow-[0_0_24px_rgba(255,70,85,0.22)]">
+              V
             </div>
             <div>
               <div className="text-lg font-black tracking-[0.18em] text-white">VANTA</div>
-              <div className="text-[9px] uppercase tracking-[0.3em] text-[#7d9aaa]">VALORANT MARKET</div>
+              <div className="text-[9px] uppercase tracking-[0.3em] text-zinc-400">Comptes Valorant</div>
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-7 text-xs font-bold uppercase tracking-[0.14em] text-[#8ca0ad] md:flex">
+          <nav className="hidden items-center gap-6 text-sm text-zinc-300 md:flex">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} className="transition hover:text-[#ff6975]">
+              <Link key={item.href} href={item.href} className="transition hover:text-white">
                 {item.label}
               </Link>
             ))}

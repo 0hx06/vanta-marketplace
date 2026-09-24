@@ -6,12 +6,12 @@ export default function HomePage() {
   return (
     <SiteShell>
       <section className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-        <div className="vanta-panel relative overflow-hidden border border-[#344653] bg-[#111a24] p-8 shadow-[0_30px_90px_rgba(0,0,0,0.45)] md:p-12">
+        <div className="relative overflow-hidden rounded-[30px] border border-white/10 bg-[#121419] p-8 shadow-[0_30px_90px_rgba(0,0,0,0.35)] md:p-12">
           <div className="vanta-scanline absolute inset-0 opacity-60" />
           <div className="absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle_at_center,_rgba(255,70,85,0.18),_transparent_65%)]" />
           <div className="relative grid items-center gap-8 lg:grid-cols-[1.25fr_0.75fr]">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.38em] text-[#61d4e5]">/// MARKETPLACE VALORANT</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.38em] text-[#ff6975]">Marketplace Valorant</p>
               <h1 className="mt-5 max-w-3xl text-4xl font-black uppercase tracking-[-0.05em] text-white md:text-6xl">
                 Des comptes Valorant clean, vérifiés et prêts à jouer.
               </h1>
@@ -19,10 +19,10 @@ export default function HomePage() {
                 Des comptes Valorant vérifiés, affichés clairement et livrés rapidement par des vendeurs suivis.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="/marketplace/valorant" className="vanta-panel rounded-none bg-[#ff4655] px-6 py-3 text-sm font-semibold text-white shadow-[0_15px_40px_rgba(255,70,85,0.22)] transition hover:bg-[#ff5d69]">
+                <Link href="/marketplace/valorant" className="rounded-full bg-[#ff4655] px-6 py-3 text-sm font-semibold text-white shadow-[0_15px_40px_rgba(255,70,85,0.22)] transition hover:bg-[#ff5d69]">
                   Voir les comptes
                 </Link>
-                <Link href="/become-a-seller" className="vanta-panel rounded-none border border-[#38505c] bg-[#0e1821] px-6 py-3 text-sm font-semibold text-white hover:border-[#61d4e5]">
+                <Link href="/become-a-seller" className="rounded-full border border-white/15 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white hover:bg-white/10">
                   Vendre mes comptes
                 </Link>
               </div>

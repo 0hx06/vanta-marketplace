@@ -33,19 +33,17 @@ body {
 }
 
 .vanta-grid {
-  background-image:
-    linear-gradient(rgba(93, 213, 230, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(93, 213, 230, 0.045) 1px, transparent 1px);
-  background-size: 34px 34px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 .vanta-panel {
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  border-radius: 28px;
 }
 
 .vanta-scanline {
-  background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
-  background-size: 100% 4px;
+  background-image: linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 100% 6px;
   pointer-events: none;
 }
 

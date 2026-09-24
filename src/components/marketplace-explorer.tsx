@@ -81,7 +81,7 @@ export function MarketplaceExplorer({
 
       <div className="mb-8 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         <label className="rounded-2xl border border-white/10 bg-zinc-900 p-3 text-sm text-zinc-200">
-          <span className="mb-2 block text-xs uppercase tracking-[0.2em] text-zinc-400">Game</span>
+          <span className="mb-2 block text-xs uppercase tracking-[0.2em] text-zinc-400">Jeu</span>
           <select
             value={selectedGame}
             onChange={(event) => setSelectedGame(event.target.value)}
@@ -95,7 +95,7 @@ export function MarketplaceExplorer({
           </select>
         </label>
         <label className="rounded-2xl border border-white/10 bg-zinc-900 p-3 text-sm text-zinc-200">
-          <span className="mb-2 block text-xs uppercase tracking-[0.2em] text-zinc-400">Category</span>
+          <span className="mb-2 block text-xs uppercase tracking-[0.2em] text-zinc-400">Catégorie</span>
           <select
             value={selectedCategory}
             onChange={(event) => setSelectedCategory(event.target.value)}
@@ -109,12 +109,12 @@ export function MarketplaceExplorer({
           </select>
         </label>
         <div className="rounded-2xl border border-violet-500/30 bg-violet-500/10 p-3 text-sm text-violet-100">
-          <div className="text-xs uppercase tracking-[0.2em] text-violet-300">Popular</div>
-          <div className="mt-2 font-semibold">Ranked boosts</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-violet-300">Populaire</div>
+          <div className="mt-2 font-semibold">Comptes bien classés</div>
         </div>
         <div className="rounded-2xl border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-100">
-          <div className="text-xs uppercase tracking-[0.2em] text-red-300">New</div>
-          <div className="mt-2 font-semibold">Verified sellers</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-red-300">Nouveau</div>
+          <div className="mt-2 font-semibold">Vendeurs vérifiés</div>
         </div>
       </div>
 
@@ -136,7 +136,7 @@ export function MarketplaceExplorer({
                   {product.badge}
                 </span>
                 {product.sellerVerified && (
-                  <span className="rounded-full bg-emerald-500/20 px-2 py-1 text-emerald-300">Verified</span>
+                  <span className="rounded-full bg-emerald-500/20 px-2 py-1 text-emerald-300">Vérifié</span>
                 )}
               </div>
               <div className="mt-10 flex gap-2">
@@ -165,7 +165,7 @@ export function MarketplaceExplorer({
               </div>
               <div className="mt-5 flex items-center justify-between">
                 <div>
-                  <div className="text-2xl font-bold text-white">€{product.price}</div>
+                  <div className="text-2xl font-bold text-white">{Math.round(product.price * 10.8)} MAD</div>
                   <div className="text-xs text-zinc-400">Vendeur : {product.seller}</div>
                 </div>
                 <div className="rounded-full bg-violet-500 px-3 py-2 text-sm font-medium text-white">
