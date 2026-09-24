@@ -54,16 +54,16 @@ export function SiteShell({ children }: { children: ReactNode }) {
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-400">Navigation</h3>
             <ul className="space-y-3 text-sm text-zinc-300">
               <li><Link href="/marketplace">Marketplace</Link></li>
-              <li><Link href="/sellers">Sellers</Link></li>
+              <li><Link href="/sellers">Vendeurs</Link></li>
               <li><Link href="/support">Support</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-400">Légal</h3>
             <ul className="space-y-3 text-sm text-zinc-300">
-              <li><Link href="/privacy">Privacy</Link></li>
-              <li><Link href="/terms">Terms</Link></li>
-              <li><Link href="/refund-policy">Refund Policy</Link></li>
+              <li><Link href="/privacy">Confidentialité</Link></li>
+              <li><Link href="/terms">Conditions</Link></li>
+              <li><Link href="/refund-policy">Remboursements</Link></li>
             </ul>
           </div>
           <div>

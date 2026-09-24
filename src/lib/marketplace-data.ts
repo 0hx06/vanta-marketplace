@@ -254,38 +254,38 @@ export const walletHistory = [
 ];
 
 export const notifications = [
-  "Your order ORD-2048 has been confirmed.",
-  "Aurora Guild replied to your ticket.",
-  "A product you follow is back in stock.",
-  "A new promotion is live for Valorant boosts.",
+  "Ta commande VNT-2048 a été confirmée.",
+  "Aurora Guild a répondu à ton ticket.",
+  "Un compte que tu suis est de nouveau disponible.",
+  "Une nouvelle offre Valorant est en ligne.",
 ];
 
 export const supportCategories = [
-  "Order",
-  "Payment",
-  "Seller",
-  "Product",
-  "Refund",
-  "Technical",
-  "Report",
-  "Other",
+  "Commande",
+  "Paiement",
+  "Vendeur",
+  "Offre",
+  "Remboursement",
+  "Technique",
+  "Signalement",
+  "Autre",
 ];
 
 export const faqs = [
   {
     question: "Can I buy digital services safely?",
     answer:
-      "Yes. The platform only permits legal, authorized offers and enforces moderation, verification, and fraud protections. Public listings do not expose sensitive account data.",
+      "Oui. Chaque offre est modérée, le vendeur est vérifié et les données sensibles ne sont jamais affichées publiquement.",
   },
   {
     question: "Do sellers need approval?",
     answer:
-      "Yes. Seller applications are moderated before accounts are activated for public listing.",
+      "Oui. Chaque candidature est vérifiée avant qu'un vendeur puisse publier une offre.",
   },
   {
     question: "How are refunds handled?",
     answer:
-      "Refund eligibility depends on delivery status, seller policy, and dispute review by the support team.",
+      "L'éligibilité dépend de la livraison, de la politique du vendeur et de l'examen du ticket par notre support.",
   },
 ];
 

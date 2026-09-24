@@ -3,16 +3,16 @@ import { cookies } from "next/headers";
 import { SiteShell } from "@/components/site-shell";
 
 const stats = [
-  { label: "Orders", value: "24", tone: "violet" },
-  { label: "Wallet", value: "$1,420", tone: "red" },
-  { label: "Favorites", value: "38", tone: "emerald" },
-  { label: "Disputes", value: "02", tone: "amber" },
+  { label: "Commandes", value: "24", tone: "violet" },
+  { label: "Solde", value: "1 420 MAD", tone: "red" },
+  { label: "Favoris", value: "38", tone: "emerald" },
+  { label: "Tickets ouverts", value: "02", tone: "amber" },
 ];
 
 const recentOrders = [
-  { order: "#GAM-1024", item: "Valorant Boost", status: "Completed", amount: "$52" },
-  { order: "#GAM-1027", item: "CS2 Case Pack", status: "In transit", amount: "$38" },
-  { order: "#GAM-1031", item: "Apex coaching", status: "Reviewing", amount: "$18" },
+  { order: "#VNT-1024", item: "Compte Radiant", status: "Livré", amount: "562 MAD" },
+  { order: "#VNT-1027", item: "Compte Ascendant", status: "En cours", amount: "529 MAD" },
+  { order: "#VNT-1031", item: "Compte Gold", status: "À vérifier", amount: "313 MAD" },
 ];
 
 export default async function DashboardPage() {
@@ -34,13 +34,13 @@ export default async function DashboardPage() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-violet-200">Dashboard</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-[#ff6975]">Espace personnel</p>
             <div className="mt-3 flex items-center gap-3">
               {avatarUrl && <img src={avatarUrl} alt="" className="h-10 w-10 rounded-full" />}
               <h1 className="text-3xl font-bold text-white">{profile.username ? `Bienvenue, ${profile.username}` : "Buyer control center"}</h1>
             </div>
           </div>
-          <Link href="/become-a-seller" className="rounded-full bg-violet-600 px-5 py-3 text-sm font-semibold text-white hover:bg-violet-500">Sell on marketplace</Link>
+          <Link href="/become-a-seller" className="rounded-full bg-[#ff4655] px-5 py-3 text-sm font-semibold text-white hover:bg-[#ff5d69]">Devenir vendeur</Link>
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -55,8 +55,8 @@ export default async function DashboardPage() {
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
           <div className="rounded-[28px] border border-white/10 bg-zinc-950/80 p-6">
             <div className="mb-5 flex items-center justify-between">
-              <h2 className="text-lg font-semibold text-white">Recent orders</h2>
-              <Link href="/dashboard/orders" className="text-sm text-violet-300">View all</Link>
+              <h2 className="text-lg font-semibold text-white">Dernières commandes</h2>
+              <Link href="/dashboard/orders" className="text-sm text-[#ff6975]">Tout voir</Link>
             </div>
             <div className="space-y-4">
               {recentOrders.map((row) => (
@@ -75,13 +75,13 @@ export default async function DashboardPage() {
           </div>
 
           <div className="rounded-[28px] border border-white/10 bg-zinc-950/80 p-6">
-            <h2 className="text-lg font-semibold text-white">Quick links</h2>
+            <h2 className="text-lg font-semibold text-white">Accès rapides</h2>
             <div className="mt-5 space-y-3 text-sm text-zinc-300">
-              <Link href="/dashboard/orders" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Orders</Link>
-              <Link href="/dashboard/wallet" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Wallet</Link>
-              <Link href="/dashboard/favorites" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Favorites</Link>
-              <Link href="/dashboard/notifications" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Notifications</Link>
-              <Link href="/dashboard/seller" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Seller panel</Link>
+              <Link href="/dashboard/orders" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-[#ff4655]/60">Mes commandes</Link>
+              <Link href="/dashboard/wallet" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-[#ff4655]/60">Mon solde</Link>
+              <Link href="/dashboard/favorites" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-[#ff4655]/60">Mes favoris</Link>
+              <Link href="/dashboard/notifications" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-[#ff4655]/60">Notifications</Link>
+              <Link href="/dashboard/seller" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-[#ff4655]/60">Espace vendeur</Link>
             </div>
           </div>
         </div>
