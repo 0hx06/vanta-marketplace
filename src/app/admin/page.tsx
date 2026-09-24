@@ -14,14 +14,19 @@ const initialTickets: Ticket[] = [
 
 export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [adminName, setAdminName] = useState("");
   const [tab, setTab] = useState<"overview" | "products" | "sellers" | "tickets">("overview");
   const [tickets, setTickets] = useState(initialTickets);
   const [notice, setNotice] = useState("");
 
   useEffect(() => {
-    setAuthenticated(window.localStorage.getItem("vanta-admin-session") === "active");
+    fetch("/api/auth/admin")
+      .then(async (response) => {
+        const result = await response.json();
+        setAuthenticated(Boolean(response.ok && result.authenticated));
+        setAdminName(result.username || "");
+      })
+      .catch(() => setAuthenticated(false));
   }, []);
 
   const metrics = useMemo(() => [
@@ -31,20 +36,8 @@ export default function AdminPage() {
     { label: "Taux de confiance", value: "96.4%", detail: "Sur les 30 derniers jours" },
   ], [tickets]);
 
-  function login(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (email === "admin@vanta.local" && password === "VantaAdmin2026!") {
-      window.localStorage.setItem("vanta-admin-session", "active");
-      setAuthenticated(true);
-      setNotice("");
-    } else {
-      setNotice("Identifiants incorrects.");
-    }
-  }
-
   function logout() {
-    window.localStorage.removeItem("vanta-admin-session");
-    setAuthenticated(false);
+    window.location.href = "/api/auth/discord";
   }
 
   function updateTicket(id: string, status: Ticket["status"]) {
@@ -58,16 +51,10 @@ export default function AdminPage() {
           <Link href="/" className="text-sm text-zinc-400 hover:text-white">← Retour au site</Link>
           <p className="mt-10 text-xs font-semibold uppercase tracking-[0.3em] text-[#ff6975]">VANTA / Admin</p>
           <h1 className="mt-3 text-3xl font-bold">Connexion administrateur</h1>
-          <p className="mt-2 text-sm text-zinc-400">Gère les offres, les vendeurs et le support depuis cet espace privé.</p>
-          <form onSubmit={login} className="mt-8 space-y-4">
-            <input value={email} onChange={(event) => setEmail(event.target.value)} type="email" required placeholder="Email admin" className="w-full rounded-2xl border border-white/10 bg-[#0c0d10] px-4 py-3 text-sm outline-none focus:border-[#ff4655]" />
-            <input value={password} onChange={(event) => setPassword(event.target.value)} type="password" required placeholder="Mot de passe" className="w-full rounded-2xl border border-white/10 bg-[#0c0d10] px-4 py-3 text-sm outline-none focus:border-[#ff4655]" />
-            {notice && <p className="text-sm text-red-300">{notice}</p>}
-            <button className="w-full rounded-full bg-[#ff4655] px-5 py-3 text-sm font-semibold hover:bg-[#ff5d69]">Ouvrir le dashboard</button>
-          </form>
-          <p className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs text-zinc-500">
-            Compte de lancement local : admin@vanta.local · VantaAdmin2026!
-          </p>
+          <p className="mt-2 text-sm text-zinc-400">Cet espace est réservé au compte Discord propriétaire configuré pour VANTA.</p>
+          <a href="/api/auth/discord" className="mt-8 block w-full rounded-full bg-[#5865f2] px-5 py-3 text-center text-sm font-semibold hover:bg-[#4752c4]">Se connecter avec Discord</a>
+          {notice && <p className="mt-4 text-sm text-red-300">{notice}</p>}
+          <p className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-3 text-xs text-zinc-500">Compte administrateur autorisé : 0xh06</p>
         </div>
       </main>
     );
@@ -81,7 +68,7 @@ export default function AdminPage() {
             <Link href="/" className="text-lg font-bold tracking-[0.18em]">VANTA</Link>
             <p className="mt-1 text-xs text-zinc-500">Administration marketplace</p>
           </div>
-          <button onClick={logout} className="rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-300 hover:bg-white/5">Déconnexion</button>
+          <div className="flex items-center gap-3"><span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 text-xs text-emerald-300">Admin · {adminName || "0xh06"}</span><button onClick={logout} className="rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-300 hover:bg-white/5">Changer de compte</button></div>
         </div>
       </header>
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
