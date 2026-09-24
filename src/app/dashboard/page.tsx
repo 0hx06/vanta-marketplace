@@ -64,6 +64,7 @@ export default function DashboardPage() {
               <Link href="/dashboard/wallet" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Wallet</Link>
               <Link href="/dashboard/favorites" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Favorites</Link>
               <Link href="/dashboard/notifications" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Notifications</Link>
+              <Link href="/dashboard/profile" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Profile and connections</Link>
               <Link href="/dashboard/seller" className="block rounded-2xl border border-white/10 bg-zinc-900 p-3 hover:border-violet-500/60">Seller panel</Link>
             </div>
           </div>
