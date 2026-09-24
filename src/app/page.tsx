@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { faqs, productCatalog, reviews, sellers } from "@/lib/marketplace-data";
+import { faqs, featuredGames, productCatalog, reviews, sellers } from "@/lib/marketplace-data";
 import { SiteShell } from "@/components/site-shell";
 
 export default function HomePage() {
@@ -60,6 +60,33 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-4 pt-8 sm:px-6 lg:px-8">
+        <div className="mb-5 flex items-end justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#ff6975]">Explorer</p>
+            <h2 className="mt-2 text-2xl font-bold text-white">Trouve ton style de compte</h2>
+          </div>
+          <span className="hidden text-sm text-zinc-500 sm:block">Une sélection mise à jour chaque jour</span>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {featuredGames.map((category) => (
+            <Link
+              key={category.name}
+              href="/marketplace/valorant"
+              className={`group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-gradient-to-br ${category.accent} p-[1px] transition hover:-translate-y-1`}
+            >
+              <div className="h-full rounded-[15px] bg-[#111318] p-5">
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-bold text-white">{category.name}</span>
+                  <span className="text-xs text-zinc-500">{category.offers} offres</span>
+                </div>
+                <div className="mt-8 h-1.5 w-2/3 rounded-full bg-gradient-to-r from-white/60 to-transparent opacity-60 transition group-hover:w-full" />
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

@@ -80,6 +80,42 @@ export function MarketplaceExplorer({
         </div>
       </div>
 
+      <div className="mb-6 flex gap-2 overflow-x-auto border-b border-white/[0.08] pb-3">
+        {["Toutes", ...categories.filter((category) => category !== "Toutes les catégories")].map((category) => {
+          const active = category === "Toutes"
+            ? selectedCategory === "Toutes les catégories"
+            : selectedCategory === category;
+          return (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setSelectedCategory(category === "Toutes" ? "Toutes les catégories" : category)}
+              className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition ${
+                active
+                  ? "bg-[#ff4655] text-white shadow-lg shadow-[#ff4655]/15"
+                  : "text-zinc-500 hover:bg-white/[0.05] hover:text-white"
+              }`}
+            >
+              {category}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="mb-8 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {[
+          ["Offres actives", `${products.length * 22}+`],
+          ["Vendeurs vérifiés", `${new Set(products.map((product) => product.seller)).size}`],
+          ["Note moyenne", "4.9 / 5"],
+          ["Livraison moyenne", "< 5 min"],
+        ].map(([label, value]) => (
+          <div key={label} className="rounded-2xl border border-white/[0.08] bg-[#111318] px-4 py-4">
+            <div className="text-lg font-bold text-white">{value}</div>
+            <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-zinc-500">{label}</div>
+          </div>
+        ))}
+      </div>
+
       <div className="mb-8 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         <label className="rounded-2xl border border-white/10 bg-[#111318] p-3 text-sm text-zinc-200">
           <span className="mb-2 block text-xs uppercase tracking-[0.2em] text-zinc-400">Jeu</span>
@@ -165,7 +201,7 @@ export function MarketplaceExplorer({
                   </span>
                 ))}
               </div>
-              <div className="mt-5 flex items-center justify-between">
+              <div className="mt-5 flex items-center justify-between border-t border-white/[0.08] pt-4">
                 <div>
                   <div className="text-2xl font-bold text-white">{Math.round(product.price * 10.8)} MAD</div>
                   <div className="text-xs text-zinc-400">Vendeur : {product.seller}</div>
