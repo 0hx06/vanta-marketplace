@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { SiteShell } from "@/components/site-shell";
 
 const stats = [
@@ -14,14 +15,30 @@ const recentOrders = [
   { order: "#GAM-1031", item: "Apex coaching", status: "Reviewing", amount: "$18" },
 ];
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const profileCookie = (await cookies()).get("vanta_discord_user")?.value;
+  let profile: { username?: string; id?: string; avatar?: string | null } = {};
+  if (profileCookie) {
+    try {
+      profile = JSON.parse(profileCookie);
+    } catch {
+      profile = {};
+    }
+  }
+  const avatarUrl = profile.id && profile.avatar
+    ? `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.png?size=128`
+    : null;
+
   return (
     <SiteShell>
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-violet-200">Dashboard</p>
-            <h1 className="mt-3 text-3xl font-bold text-white">Buyer control center</h1>
+            <div className="mt-3 flex items-center gap-3">
+              {avatarUrl && <img src={avatarUrl} alt="" className="h-10 w-10 rounded-full" />}
+              <h1 className="text-3xl font-bold text-white">{profile.username ? `Bienvenue, ${profile.username}` : "Buyer control center"}</h1>
+            </div>
           </div>
           <Link href="/become-a-seller" className="rounded-full bg-violet-600 px-5 py-3 text-sm font-semibold text-white hover:bg-violet-500">Sell on marketplace</Link>
         </div>

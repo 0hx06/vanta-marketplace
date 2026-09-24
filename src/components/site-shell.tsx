@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { DiscordProfileButton } from "@/components/discord-profile-button";
 
 const navItems = [
   { label: "Comptes", href: "/marketplace/valorant" },
@@ -34,9 +35,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
             <Link href="/become-a-seller" className="hidden rounded-full border border-violet-500/40 bg-violet-500/5 px-4 py-2 text-sm font-medium text-violet-200 md:inline-flex">
               Vendre
             </Link>
-            <Link href="/login" className="rounded-full bg-[#ff4655] px-4 py-2 text-sm font-medium text-white shadow-[0_10px_30px_rgba(255,70,85,0.2)] transition hover:bg-[#ff5d69]">
-              Connexion
-            </Link>
+            <DiscordProfileButton />
           </div>
         </div>
       </header>
