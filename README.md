@@ -47,9 +47,9 @@ La liaison Discord est disponible depuis `/dashboard/profile`. Elle utilise OAut
 - `VANTA_SESSION_SECRET` : secret aléatoire d'au moins 32 caractères, utilisé pour vérifier la session et l'état OAuth
 - `DISCORD_CLIENT_ID`
 - `DISCORD_CLIENT_SECRET` (serveur uniquement, jamais préfixé `NEXT_PUBLIC_`)
-- `DISCORD_REDIRECT_URI` : URL exacte de callback, par exemple `https://example.com/api/discord/callback`
+- `DISCORD_REDIRECT_URI` : URL exacte de callback, par exemple `https://example.com/api/auth/discord/callback`
 
-Exécutez la migration sur la base de production puis ajoutez exactement la même `DISCORD_REDIRECT_URI` dans l'application Discord, dans **OAuth2 → Redirects**. Les routes attendent la session utilisateur signée `vanta_session` au format `base64url(JSON({ userId, exp })).signature`, signée avec `VANTA_SESSION_SECRET`. L'état OAuth est stocké dans un cookie HttpOnly court, comparé à la session et vérifié côté serveur ; aucun token Discord n'est conservé.
+Exécutez la migration sur la base de production puis ajoutez exactement la même `DISCORD_REDIRECT_URI` dans l'application Discord, dans **OAuth2 → Redirects**. La connexion et l'inscription utilisent uniquement Discord ; le callback crée ou retrouve l'utilisateur via son identifiant Discord puis émet le cookie de session signé `vanta_session` au format `base64url(JSON({ userId, exp })).signature`. L'état OAuth est stocké dans un cookie HttpOnly court et vérifié côté serveur ; aucun token Discord n'est conservé. Les anciennes données de comptes ne sont pas supprimées, mais les formulaires email/mot de passe ne sont plus proposés.
 
 ## Admin
 
