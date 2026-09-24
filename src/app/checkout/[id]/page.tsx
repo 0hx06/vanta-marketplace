@@ -18,6 +18,7 @@ export default function CheckoutPage({ params }: { params: { id: string } }) {
   }
 
   const productId = product.id;
+  const productName = product.name;
   function submitPayment(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
@@ -30,6 +31,11 @@ export default function CheckoutPage({ params }: { params: { id: string } }) {
       .then(async (response) => {
         const result = await response.json();
         if (!response.ok) throw new Error(result.error || "Le paiement n'a pas pu démarrer.");
+        const existing = JSON.parse(window.localStorage.getItem("vanta-orders") || "[]");
+        window.localStorage.setItem("vanta-orders", JSON.stringify([
+          ...existing,
+          { id: `VNT-${Date.now().toString().slice(-6)}`, item: productName, status: "Paiement confirmé", amount: priceMad, createdAt: new Date().toISOString() },
+        ]));
         setPaid(true);
       })
       .catch((reason: Error) => setError(reason.message))
