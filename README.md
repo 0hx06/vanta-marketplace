@@ -39,6 +39,14 @@ Le checkout accepte CMI et PayPal comme passerelles. Les clés restent uniquemen
 
 Sans ces variables, le checkout affiche volontairement que la passerelle n'est pas configurée et aucun paiement réel n'est lancé.
 
+## Connexion Discord
+
+L'inscription et la connexion passent uniquement par Discord OAuth2. Crée une application dans le [Discord Developer Portal](https://discord.com/developers/applications), active les scopes `identify` et `email`, puis ajoute cette URL de redirection :
+
+`https://TON-DOMAINE.vercel.app/api/auth/discord/callback`
+
+Configure ensuite `DISCORD_CLIENT_ID`, `DISCORD_CLIENT_SECRET` et `NEXT_PUBLIC_SITE_URL` dans Vercel. En local, utilise `http://localhost:3000/api/auth/discord/callback`.
+
 ## Admin
 
 L'espace admin local est disponible sur `/admin`. Le compte de démonstration est affiché sur l'écran de connexion. Pour une vraie mise en production, remplace cette authentification locale par une base de données et un fournisseur d'identité.
